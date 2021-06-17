@@ -154,7 +154,7 @@ void Player::Render()
 {
 	main_col->Draw();
 	bg->Render(CENTER, RT_ZERO, { 1,1 }, 0, 1, D3DCOLOR_RGBA(150, 150, 150, 255));
-	img->Render(pos, RT_ZERO, { 10,10 }, D3DXToRadian(rot));
+	img->Render(pos, RT_ZERO, { 1,1 }, D3DXToRadian(rot));
 
 	char str[256];
 	sprintf(str, "%.2f%%", (double)coloring_per);

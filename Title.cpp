@@ -29,9 +29,9 @@ void Title::Init()
 		break;
 	case 2:
 		bg = IMG->Add("HowToPlay");
-		start = new Button(IMG->Add("BigBlue"), { CENTER.x + 650,CENTER.y - 85 }, "START", 1071, 1295, 1, [&]()->void {SCENE->Set("stage1"); });
-		credit = new Button(IMG->Add("BigBlue"), { CENTER.x + 650,CENTER.y + 140 }, "HowToPlay", 1067, 1300, 1, [&]()->void {win_credit->On(); });
-		end = new Button(IMG->Add("BigBlue"), { CENTER.x + 650,CENTER.y + 365 }, "EXIT", 440, 200, 1, [&]()->void {PostQuitMessage(0); });
+		start = new Button(IMG->Add("BigBlue"), { CENTER.x + 350,CENTER.y + 90 }, "",200,70, 1, [&]()->void {SCENE->Set("stage1"); });
+		credit = new Button(IMG->Add("BigBlue"), { CENTER.x + 650,CENTER.y + 140 }, "", 200, 200, 1, [&]()->void {win_credit->On(); });
+		end = new Button(IMG->Add("BigBlue"), { CENTER.x + 650,CENTER.y + 365 }, "", 200, 200, 1, [&]()->void {PostQuitMessage(0); });
 		win_credit = new Window(IMG->Add("HowToPlay"), CENTER, 900, 900);
 		break;
 	}
