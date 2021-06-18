@@ -218,6 +218,9 @@
     <ClCompile Include="ScrollMap.cpp">
       <Filter>CLASS\ScrollMap</Filter>
     </ClCompile>
+    <ClCompile Include="Credit.cpp">
+      <Filter>Game\scene</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="stdafx.h" />
@@ -304,6 +307,9 @@
     </ClInclude>
     <ClInclude Include="ScrollMap.h">
       <Filter>CLASS\ScrollMap</Filter>
+    </ClInclude>
+    <ClInclude Include="Credit.h">
+      <Filter>Game\scene</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

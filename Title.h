@@ -13,6 +13,7 @@ public:
     int index = 0;
 
     Button* start;
+    Button* HowTo;
     Button* credit;
     Button* end;
 

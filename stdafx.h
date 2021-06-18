@@ -83,6 +83,7 @@ enum Tag
 #include "Title.h"
 #include "Ingame.h"
 #include "End.h"
+#include "Credit.h"
 
 //OBJ
 #include "Player.h"

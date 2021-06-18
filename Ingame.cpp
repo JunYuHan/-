@@ -12,7 +12,9 @@ void Ingame::Init()
 {
 	OBJ->Add(new Mouse, "Mouse");
 
-	map = new ScrollMap(IMG->Add("Bg"));
+	map = new ScrollMap(IMG->Add("Stage1"));
+
+	bg = IMG->Add("Stage1");
 
 	switch (type)
 	{
@@ -52,8 +54,8 @@ void Ingame::Update()
 
 void Ingame::Render()
 {
-	if (map)
-		map->Render();
+	//if (map)
+	//	map->Render();
 	bg->Render();
 }
 
