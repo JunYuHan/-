@@ -10,6 +10,7 @@
 #include <algorithm>
 #include <functional>
 
+
 using namespace std;
 using V3 = D3DXVECTOR3;
 using V2 = D3DXVECTOR2;
@@ -18,18 +19,18 @@ using M = D3DXMATRIX;
 const int WINX = 1600;
 const int WINY = 900;
 const V2 CENTER = { WINX / 2,WINY / 2 };
-const int CELLSIZE_X = 1024;
-const int CELLSIZE_Y = 1024;
+const int CELLSIZE_X = 1600;
+const int CELLSIZE_Y = 900;
 const int L = CENTER.x - CELLSIZE_X / 2;
 const int R = CENTER.x + CELLSIZE_X / 2;
 const int T = CENTER.y - CELLSIZE_Y / 2;
 const int B = CENTER.y + CELLSIZE_Y / 2;
-const int x_gap = (WINX - CELLSIZE_X) / 2;
-const int y_gap = (WINY - CELLSIZE_Y) / 2;
+const int x_gap = 0;
+const int y_gap = 0;
 
 const RECT RT_ZERO = { 0,0,0,0 };
 
-static bool WIN = false;
+static bool WIN = true;
 static float time_scale = 1;
 static int score = 0;
 
@@ -83,7 +84,7 @@ enum Tag
 #include "Title.h"
 #include "Ingame.h"
 #include "End.h"
-#include "Credit.h"
+
 
 //OBJ
 #include "Player.h"

@@ -16,6 +16,14 @@ bool InputMgr::Down(BYTE key)
     return now[key] && !prev[key];
 }
 
+bool InputMgr::AnyKey()
+{
+    for (size_t i = 0; i < 256; i++)
+        if (Down(i))
+            return true;
+    return false;
+}
+
 V2 InputMgr::GetMousePos()
 {
     POINT pt;
@@ -33,6 +41,8 @@ void InputMgr::Update()
 
     for (size_t i = 0; i < 256; i++)
     {
+        if (i == 21)
+            continue;
         now[i] = false;
         if (GetAsyncKeyState(i))
             now[i] = true;

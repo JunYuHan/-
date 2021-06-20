@@ -13,14 +13,15 @@ public:
     int index = 0;
 
     Button* start;
-    Button* HowTo;
     Button* credit;
-    Button* end;
+    Button* howto;
+    Button* exit;
 
     Window* win_credit;
     ScrollMap* map;
 
     int type;
+    bool isM_On;
 
     // Scene을(를) 통해 상속됨
     virtual void Init() override;

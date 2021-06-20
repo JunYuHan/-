@@ -1,4 +1,4 @@
-#pragma once
+ï»¿#pragma once
 #include "Obj.h"
 class Enemy :
     public Obj
@@ -22,10 +22,12 @@ public:
     {
         {0.5f,0.5f},
         {1,1},
-        {2,2},
+        {3.5,3.5},
         {4,4},
         {6,6},
-        {16,16},
+        {12,6},
+        {17,16},
+        {7,7},
     };
 
     vector<float> speeds = vector<float>
@@ -41,7 +43,7 @@ public:
     void Rush();
     void Shot(int shots);
 
-    // ObjÀ»(¸¦) ÅëÇØ »ó¼ÓµÊ
+    // Objì„(ë¥¼) í†µí•´ ìƒì†ë¨
     virtual void Init() override;
     virtual void Update() override;
     virtual void Render() override;

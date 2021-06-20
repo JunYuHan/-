@@ -1,6 +1,11 @@
 #include "DXUT.h"
 #include "ImgMgr.h"
 
+void Texture::CenterRender(V2 pos, float rot, V2 size, D3DCOLOR color)
+{
+	IMG->CenterRender(this, pos, rot, size, color);
+}
+
 void Texture::Render(V2 pos, RECT rt, V2 size, float rot, float depth, D3DXCOLOR color, bool center)
 {
 	IMG->Render(this, pos, rt, size, rot, depth, color, center);
@@ -48,6 +53,21 @@ Texture* ImgMgr::Add(const string& key)
 void ImgMgr::Begin()
 {
 	sprite->Begin(1 << 4 | 1 << 2 | 1 << 6);
+}
+
+void ImgMgr::CenterRender(Texture* p, V2 pos, float rot, V2 size, D3DCOLOR color)
+{
+	if (p)
+	{
+		D3DXMATRIXA16 mat;
+		V2 CenterPos = V2(p->info.Width / 2, p->info.Height / 2);
+		pos -= CenterPos;
+
+		D3DXMatrixTransformation2D(&mat, &CenterPos, 0, &size, &CenterPos, rot, &pos);
+
+		sprite->SetTransform(&mat);
+		sprite->Draw(p->p, nullptr, nullptr, nullptr, color);
+	}
 }
 
 void ImgMgr::Render(Texture* p, V2 pos, RECT rt, V2 size, float rot, float depth, D3DXCOLOR color, bool center)
@@ -100,4 +120,16 @@ void ImgMgr::Lost()
 void ImgMgr::Reset()
 {
 	sprite->OnResetDevice();
+}
+
+Texture* ImgMgr::ReLoad(const string& key)
+{
+	auto find = textures.find(key);
+	if (find != textures.end())
+	{
+		find->second->Release();
+		SAFE_DELETE(find->second);
+		textures.erase(find);
+	}
+	return IMG->Add(key);
 }

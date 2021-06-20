@@ -34,7 +34,7 @@ void Enemy::Init()
 {
 	dir = RANDOM->Vec2(pos);
 	char str[256];
-	sprintf(str, "enemy%d", type);
+	sprintf(str, "enemy%d", type);		//사진 enemy 숫자		7,8은 보스
 	img = IMG->Add(str);
 	cool = 0;
 	speed = 0;
@@ -47,38 +47,38 @@ void Enemy::Init()
 	{
 	case 1:
 		cool = 5;
-		size = sizes[2];
+		size = sizes[4];
 		speed = speeds[2];
 		break;
 	case 2:
-		size = sizes[3];
+		size = sizes[2];
 		speed = speeds[1];
 		break;
 	case 3:
-		size = sizes[1];
+		size = sizes[4];
 		speed = speeds[3];
 		break;
 	case 4:
 		cool = 3;
-		size = sizes[3];
+		size = sizes[5];
 		speed = speeds[3];
 		break;
 	case 5:
-		size = sizes[0];
+		size = sizes[4];
 		speed = speeds[4];
 		break;
 	case 6:
-		size = sizes[4];
+		size = sizes[2];
 		speed = speeds[0];
 		break;
 	case 7:
 		cool = 10;
-		size = sizes[5];
+		size = sizes[6];
 		speed = speeds[2];
 		break;
 	case 8:
 		cool = 3;
-		size = sizes[5];
+		size = sizes[7];
 		speed = speeds[2];
 		break;
 	}
@@ -102,18 +102,19 @@ void Enemy::Update()
 	switch (type)
 	{
 	case 1:
-	case 4:
-		if (timer->IsStop())
-		{
-			Flash();
-			timer->Start();
-		}
+	case 6:
+		range = 30;
+		//if (timer->IsStop())
+		//{
+		//	Flash();
+		//	timer->Start();
+		//}
 		break;
 	case 7:
 		range = 110;
 		if (timer->IsStop())
 		{
-			Rush();
+			//Rush();
 			timer->Start();
 		}
 		if (during->IsStop())
@@ -132,7 +133,7 @@ void Enemy::Update()
 		range = 110;
 		if (timer->IsStop())
 		{
-			Shot(36);
+			//Shot(36);
 			timer->Start();
 		}
 		break;
@@ -140,27 +141,36 @@ void Enemy::Update()
 
 	main_col->Set(pos, 16 * size.x, 16 * size.y);
 
-	POINT c = { trunc(pos.x) - 460, trunc(pos.y) - 40 };
+	POINT c = { trunc(pos.x) - x_gap, trunc(pos.y) - y_gap };
 
 	for (int y = -range; y <= range; y++)
+	{
 		for (int x = -range; x <= range; x++)
+		{
 			if (Player::cell[c.x + x][c.y + y] == 2)
+			{
 				dir = RANDOM->Vec2(pos);
+			}
+			if (Player::cell[c.x + x][c.y + y] == 1)
+			{
+				Player::isHurt = true;
+			}
+		}
+	}
 
 	if (Player::cell[c.x][c.y] == 3)
 		if (type < 7)
 			flag = true;
+
 }
 
 void Enemy::Render()
 {
 	main_col->Draw();
-	for (auto& i : fxs)
-		i->Render();
-	rot += spin_force;
-	if (rot >= 360)
-		rot = 0;
-	img->Render(pos, { 0,0,0,0 }, { 1,1 }, D3DXToRadian(rot), 0);
+	//rot += spin_force;
+	//if (rot >= 360)
+	//	rot = 0;
+	img->Render(pos, { 0,0,0,0 }, { 1,1 }, D3DXToRadian(0), 0.3);
 }
 
 void Enemy::Release()

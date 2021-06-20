@@ -10,6 +10,7 @@ void Title::Init()
 {
 	OBJ->Add(new Mouse, "Mouse");
 
+
 	/*map = new ScrollMap(IMG->Add("Bg", "Bg"));*/
 
 	switch (type)
@@ -28,12 +29,12 @@ void Title::Init()
 		delay->Start();
 		break;
 	case 2:
-		bg = IMG->Add("HowToPlay");
-		start = new Button(IMG->Add(""), { CENTER.x + 350,CENTER.y + 90 }, "",200,70, 1, [&]()->void {SCENE->Set("stage1"); });
-		HowTo = new Button(IMG->Add(""), {CENTER.x + 650,CENTER.y + 200},"",200,70,1, [&]()->void {SCENE->Set("Credit"); });
-		credit = new Button(IMG->Add(""), { CENTER.x + 650,CENTER.y + 140 }, "", 200, 70, 1, [&]()->void {win_credit->On(); });
-		end = new Button(IMG->Add(""), { CENTER.x + 650,CENTER.y + 365 }, "", 200, 70, 1, [&]()->void {PostQuitMessage(0); });
+		bg = IMG->Add("title_background");
 		
+		start = new Button(IMG->Add("title_button_start"), { CENTER.x,CENTER.y + 90 }, "", 250, 70, 0.9, [&]()->void { SCENE->Set("stage1"); IMG->ReLoad("BG1"); },true);
+		howto = new Button(IMG->Add("title_button_howto"), { CENTER.x,CENTER.y + 170 }, "", 250, 70, 0.9, [&]()->void {win_credit->On(); }, true);
+		credit = new Button(IMG->Add("title_button_credit"), { CENTER.x,CENTER.y + 250 }, "", 250, 70, 0.9, [&]()->void { SCENE->Set("Credit"); }, true);
+		exit = new Button(IMG->Add("title_button_exit"), { CENTER.x,CENTER.y + 330 }, "", 250, 70, 0.9, [&]()->void {PostQuitMessage(0); }, true);
 		win_credit = new Window(IMG->Add("HowToPlay"), CENTER, 900, 900);
 		break;
 	}
@@ -41,6 +42,10 @@ void Title::Init()
 
 void Title::Update()
 {
+	if (INPUT->Down('M'))
+	{
+		OBJ->Add(new Mouse, "Mouse");
+	}
 	switch (type)
 	{
 	case 1:
@@ -55,25 +60,13 @@ void Title::Update()
 		}
 		break;
 	case 2:
-		//if (map)
-		//	map->Update(500);
 		break;
 	}
 }
 
 void Title::Render()
 {
-	switch (type)
-	{
-	case 1:
-		anim[index]->Render();
-		break;
-	case 2:
-		//if (map)
-		//	map->Render();
-		IMG->Add("Bg")->Render();
-		break;
-	}
+	bg->Render();
 }
 
 void Title::Release()

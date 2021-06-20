@@ -9,6 +9,7 @@ public:
     bool Up(BYTE key);
     bool Press(BYTE key);
     bool Down(BYTE key);
+    bool AnyKey();
 
     V2 GetMousePos();
 

@@ -4,17 +4,27 @@ class Button :
     public Obj
 {
 public:
-    Button(Texture* bg, V2 pos, const string& text, float w, float h, float depth, function<void()> func);
+    Button(Texture* bg, V2 pos, const string& text, float w, float h, float depth, function<void()> func, bool T_B);
 
+    float W, H;
     Texture* bg;
+    Texture* sword;
+    V2 b_pos;
     string text;
     function<void()> func;
 
+    Timer* wait;
+
     int r = 255, g = 255, b = 255;
+    float swordX;
 
     float depth;
 
     bool isOn;
+    bool T_B;
+    bool title_button;
+    bool T_B_On = false;
+    bool isClick = false;
 
     void On();
     void Off();

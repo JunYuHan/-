@@ -3,7 +3,7 @@
 
 ObjMgr::ObjMgr()
 	:layer
-	{
+{
 	//   1,2,3,4,5,6,7,8
 		{0,1,0,0,0,0,0,0},  // 1 UI
 		{0,0,0,0,0,0,0,0},  // 2 MOUSE
@@ -13,7 +13,7 @@ ObjMgr::ObjMgr()
 		{0,0,0,0,0,0,0,0},  // 6 EATK
 		{0,0,0,0,0,0,0,0},  // 7 OBS
 		{0,0,0,0,0,0,0,0},  // 8 ITEM
-	}
+}
 {
 }
 
@@ -120,7 +120,8 @@ void ObjMgr::Clear()
 bool ObjMgr::MapOut(Obj* p)
 {
 	if (p)
-		return (p->pos.x < 0 || p->pos.x > WINX ||
-			p->pos.y < 0 || p->pos.y > WINY);
+	{
+		return (p->pos.x < -400 ||  p->pos.x > WINX + 400 || p->pos.y < -400 || p->pos.y > WINY + 400);
+	}
 	return false;
 }
