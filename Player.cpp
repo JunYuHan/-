@@ -18,7 +18,7 @@ void Player::Init()
 		bg2 = IMG->Add("1Stage_Bg");
 		break;
 	case 2:
-		bg = IMG->Add("BG3");
+		bg = IMG->Add("BG2");
 		bg2 = IMG->Add("2Stage_Bg");
 		break;
 	}
@@ -74,7 +74,7 @@ void Player::Update()
 		bg2 = IMG->Add("1Stage_Bg");
 		break;
 	case 2:
-		bg = IMG->Add("BG3");
+		bg = IMG->Add("BG2");
 		bg2 = IMG->Add("2Stage_Bg");
 		break;
 	}
@@ -84,7 +84,7 @@ void Player::Update()
 	}
 	if (hp <= 0)
 	{
-		IMG->ReLoad("BG1");
+		bg=IMG->ReLoad("BG1");
 		SCENE->Set("fail");
 	}
 
@@ -431,7 +431,7 @@ void Player::DrawArea(int draw_flag)
 				change = D3DCOLOR_RGBA(0, 0, 0, 0);
 				cell[x][y] = 3;
 			}
-		}
+			}
 			switch (cell[x][y])
 			{
 			case 0:

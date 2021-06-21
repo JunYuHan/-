@@ -3,47 +3,53 @@
 
 SceneMgr::~SceneMgr()
 {
-	if (now)
-		now->Release();
-	for (auto& i : scenes)
-		SAFE_DELETE(i.second);
-	scenes.clear();
+    if (now)
+        now->Release();
+    for (auto& i : scenes)
+        SAFE_DELETE(i.second);
+    scenes.clear();
 }
 
 void SceneMgr::Add(Scene* p, const string& key)
 {
-	if (p && scenes.find(key) == scenes.end())
-		scenes[key] = p;
+    if (p && scenes.find(key) == scenes.end())
+        scenes[key] = p;
 }
 
 void SceneMgr::Set(const string& key)
 {
-	auto f = scenes.find(key);
-	if (f != scenes.end())
-	{
-		flag = false;
-		if (now)
-			now->Release();
-		now = f->second;
-		OBJ->Clear();
-	}
+    if (key == "stage1")
+        round = 1;
+    if (key == "stage2")
+        round = 2;
+    auto f = scenes.find(key);
+    if (f != scenes.end())
+    {
+        if (now)
+        {
+            now->Release();
+            now->inited = false;
+        }
+        OBJ->Clear();
+        now = f->second;
+    }
 }
 
 void SceneMgr::Update()
 {
-	if (OBJ->l_obj.empty())
-	{
-		now->Init();
-		HOT->Reset();
-		flag = true;
-	}
+    if (OBJ->l_obj.empty())
+    {
+        now->Init();
+        now->inited = true;
+        HOT->Reset();
+    }
 
-	if (flag && now)
-		now->Update();
+    if (now->inited)
+        now->Update();
 }
 
 void SceneMgr::Render()
 {
-	if (flag && now)
-		now->Render();
+    if (now->inited)
+        now->Render();
 }

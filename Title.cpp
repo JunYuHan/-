@@ -35,7 +35,7 @@ void Title::Init()
 		howto = new Button(IMG->Add("title_button_howto"), { CENTER.x,CENTER.y + 170 }, "", 250, 70, 0.9, [&]()->void {win_credit->On(); }, true);
 		credit = new Button(IMG->Add("title_button_credit"), { CENTER.x,CENTER.y + 250 }, "", 250, 70, 0.9, [&]()->void { SCENE->Set("Credit"); }, true);
 		exit = new Button(IMG->Add("title_button_exit"), { CENTER.x,CENTER.y + 330 }, "", 250, 70, 0.9, [&]()->void {PostQuitMessage(0); }, true);
-		win_credit = new Window(IMG->Add("HowToPlay"), CENTER, 900, 900);
+		win_credit = new Window(IMG->Add("HowToPlay"), CENTER, 615, 770);
 		break;
 	}
 }
@@ -60,8 +60,23 @@ void Title::Update()
 		}
 		break;
 	case 2:
+		if (win_credit->isOn)
+		{
+			start->Off();
+			howto->Off();
+			credit->Off();
+			exit->Off();
+		}
+		else
+		{
+			start->On();
+			howto->On();
+			credit->On();
+			exit->On();
+		}
 		break;
 	}
+	
 }
 
 void Title::Render()
