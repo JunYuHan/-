@@ -22,6 +22,8 @@ void Ingame::Init()
 		Player::coloring_per = 0;
 		OBJ->Add(new Enemy(7), "Boss")->pos = CENTER;
 		OBJ->Add(new Enemy(1), "Eenmy")->pos = { float(RANDOM->INT(L + 1, R - 1)),float(RANDOM->INT(T + 1,B - 1)) };
+		OBJ->Add(new Enemy(1), "Eenmy")->pos = { float(RANDOM->INT(L + 1, R - 1)),float(RANDOM->INT(T + 1,B - 1)) };
+		OBJ->Add(new Enemy(2), "Eenmy")->pos = { float(RANDOM->INT(L + 1, R - 1)),float(RANDOM->INT(T + 1,B - 1)) };
 		OBJ->Add(new Enemy(2), "Eenmy")->pos = { float(RANDOM->INT(L + 1, R - 1)),float(RANDOM->INT(T + 1,B - 1)) };
 		score = 0;
 		break;
@@ -139,7 +141,7 @@ void Ingame::Render()
 
 	char str[256];
 	sprintf(str, "%.0f", Player::coloring_per * 500);		//스코어
-	IMG->Write(str, { 290, Y - 32 }, 50, D3DCOLOR_XRGB(0, 0, 0), false);
+	IMG->Write(str, { 310, Y - 42 }, 50, D3DCOLOR_XRGB(0, 0, 0), false);
 
 	sprintf(str, "%.1f", Player::coloring_per);				//점령도
 	IMG->Write(str, { WINX / 2 - 25, Y - 8 }, 50, D3DCOLOR_XRGB(0, 0, 0), true);

@@ -46,7 +46,6 @@ void Enemy::Init()
 	switch (type)
 	{
 	case 1:
-		cool = 5;
 		size = sizes[4];
 		speed = speeds[2];
 		break;
