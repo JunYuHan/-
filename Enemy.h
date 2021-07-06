@@ -31,12 +31,15 @@ public:
     };
 
     vector<float> speeds = vector<float>
-    {
-        0.5f,
-        0.75f,
-        1,
-        1.25f,
-        1.5f,
+    {               //적 스피드
+        0.5f, //0
+        0.75f, //1
+        1, //2 
+        1.25f, //3 
+        1.5f, //4 
+        4, //5
+        7, //6
+
     };
 
     void Flash();

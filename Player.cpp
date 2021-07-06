@@ -21,6 +21,10 @@ void Player::Init()
 		bg = IMG->Add("BG2");
 		bg2 = IMG->Add("2Stage_Bg");
 		break;
+	case 3:
+		bg = IMG->Add("BG3");
+		bg2 = IMG->Add("3Stage_Bg");
+		break;
 	}
 
 

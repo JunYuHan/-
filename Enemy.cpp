@@ -45,40 +45,26 @@ void Enemy::Init()
 
 	switch (type)
 	{
-	case 1:
+	case 1: //°Ëº´
 		size = sizes[4];
 		speed = speeds[2];
 		break;
-	case 2:
+	case 2: //Ã¢º´
 		size = sizes[2];
 		speed = speeds[1];
 		break;
-	case 3:
+	case 3: //±â¸¶º´	
 		size = sizes[4];
-		speed = speeds[3];
+		speed = speeds[7];
 		break;
-	case 4:
+	case 4: //¼®±Ã
 		cool = 3;
 		size = sizes[5];
 		speed = speeds[3];
 		break;
-	case 5:
+	case 5: //¿Õ
 		size = sizes[4];
-		speed = speeds[4];
-		break;
-	case 6:
-		size = sizes[2];
-		speed = speeds[0];
-		break;
-	case 7:
-		cool = 10;
-		size = sizes[6];
-		speed = speeds[2];
-		break;
-	case 8:
-		cool = 3;
-		size = sizes[7];
-		speed = speeds[2];
+		speed = speeds[6];
 		break;
 	}
 

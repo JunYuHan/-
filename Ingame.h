@@ -9,7 +9,9 @@ public:
     // UI
     Texture* Ui_base;
     Texture* Ui_score;
-    Texture* Ui_stage;
+    Texture* Ui_stage1;
+    Texture* Ui_stage2;
+    Texture* Ui_stage3;
     Texture* Ui_precent;
     Button* Ui_pause;
     Texture* Ui_abled_life;
