@@ -8,8 +8,10 @@ void MainGame::Init()
 	SCENE->Add(new Ingame(1), "stage1");
 	SCENE->Add(new Ingame(2), "stage2");
 	SCENE->Add(new Ingame(3), "stage3");
-	SCENE->Add(new End(1), "clear");
+	SCENE->Add(new End(1), "clear"); 
 	SCENE->Add(new End(2), "fail");
+	SCENE->Add(new End(3), "clear stage1");
+	SCENE->Add(new End(4), "clear stage2");
 	SCENE->Add(new Credit, "Credit");
 	
 	SCENE->Set("title");

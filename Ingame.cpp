@@ -31,8 +31,8 @@ void Ingame::Init()
 		Ingame::stage = 2;
 		Player::coloring_per = 0;
 		OBJ->Add(new Enemy(4), "Boss")->pos = CENTER;
-		OBJ->Add(new Enemy(3), "Eenmy")->pos = { float(RANDOM->INT(L + 1, R - 1)),float(RANDOM->INT(T + 1,B - 1)) };
-		OBJ->Add(new Enemy(3), "Eenmy")->pos = { float(RANDOM->INT(L + 1, R - 1)),float(RANDOM->INT(T + 1,B - 1)) };
+		OBJ->Add(new Enemy(6), "Eenmy")->pos = { float(RANDOM->INT(L + 1, R - 1)),float(RANDOM->INT(T + 1,B - 1)) };
+		OBJ->Add(new Enemy(6), "Eenmy")->pos = { float(RANDOM->INT(L + 1, R - 1)),float(RANDOM->INT(T + 1,B - 1)) };
 		OBJ->Add(new Enemy(1), "Eenmy")->pos = { float(RANDOM->INT(L + 1, R - 1)),float(RANDOM->INT(T + 1,B - 1)) };
 		OBJ->Add(new Enemy(1), "Eenmy")->pos = { float(RANDOM->INT(L + 1, R - 1)),float(RANDOM->INT(T + 1,B - 1)) };
 		break;
@@ -65,7 +65,7 @@ void Ingame::Init()
 
 	OBJ->Add(new Mouse, "Mouse");
 
-	timer = 60;
+	timer = 100;
 	playtime = TIME->Create(timer);
 }
 
@@ -78,7 +78,7 @@ void Ingame::Update()
 	}
 	
 	
-	if (Player::coloring_per >=80)
+	if (Player::coloring_per >=0.1)
 	{
 		switch (type)
 		{
@@ -104,6 +104,7 @@ void Ingame::Update()
 			Ui_pause->pos.y -= 4;
 		}
 	}
+
 	else
 	{
 		if (Y < 60)
@@ -135,8 +136,8 @@ void Ingame::Render()
 	switch (player->hp)
 	{
 	case 1:
-		Ui_unabled_life->Render({ WINX / 2 + 250, (Y - 10) }, RT_ZERO, { 1,1 }, 0, 0.2);
-		Ui_unabled_life->Render({ WINX / 2 + 180, (Y - 10) }, RT_ZERO, { 1,1 }, 0, 0.2);
+		Ui_unabled_life->Render({ WINX / 2 + 200, (Y - 10) }, RT_ZERO, { 1,1 }, 0, 0.2);
+		Ui_unabled_life->Render({ WINX / 2 + 130, (Y - 10) }, RT_ZERO, { 1,1 }, 0, 0.2);
 		Ui_abled_life->Render({ WINX / 2 + 110, (Y - 10) }, RT_ZERO, { 1,1 }, 0, 0.2);
 		break;
 	case 2:
@@ -155,8 +156,8 @@ void Ingame::Render()
 		Ui_abled_life->Render({ WINX / 2 + 110, (Y - 10) }, RT_ZERO, { 1,1 }, 0, 0.2);
 		break;
 	}
-	Ui_time->Render({ WINX / 2 + 420, (Y - 20) }, RT_ZERO, { 1,1 }, 0, 0.2);
-	Ui_timer_tank->Render({ WINX / 2 + 600, (Y - 20) }, RT_ZERO, { 1,1 }, 0, 0.2);
+	Ui_time->Render({ WINX / 2 + 400, (Y - 20) }, RT_ZERO, { 1,1 }, 0, 0.2);
+	Ui_timer_tank->Render({ WINX / 2 + 640, (Y - 5) }, RT_ZERO, { 1,1 }, 0, 0.2);
 	RECT hprt =
 	{
 		0,
@@ -164,7 +165,7 @@ void Ingame::Render()
 		Ui_timer_bar->info.Width / playtime->set * playtime->cur,
 		Ui_timer_bar->info.Height
 	};
-	Ui_timer_bar->Render({ WINX / 2 + 605, (Y - 20) }, hprt, { 1,1 }, 0, 0.1);
+	Ui_timer_bar->Render({ WINX / 2 + 640, (Y - 5) }, hprt, { 1,1 }, 0, 0.1);
 
 	char str[256];
 	sprintf(str, "%.0f", Player::coloring_per * 500);		//½ºÄÚ¾î

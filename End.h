@@ -11,6 +11,7 @@ public:
 
     Button* restart;
     Button* title;
+    Button* next;
 
     int type;
 

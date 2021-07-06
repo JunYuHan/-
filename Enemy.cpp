@@ -53,9 +53,9 @@ void Enemy::Init()
 		size = sizes[2];
 		speed = speeds[1];
 		break;
-	case 3: //기마병	
-		size = sizes[4];
-		speed = speeds[7];
+	case 3: //기마병 (보스)
+		size = sizes[6];
+		speed = speeds[4];
 		break;
 	case 4: //석궁
 		cool = 3;
@@ -66,6 +66,9 @@ void Enemy::Init()
 		size = sizes[4];
 		speed = speeds[6];
 		break;
+	case 6: //기마병(잡몹)
+		size = sizes[2];
+		speed = speeds[4];
 	}
 
 	timer = TIME->Create(cool);
