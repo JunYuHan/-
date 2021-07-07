@@ -40,10 +40,11 @@ void Ingame::Init()
 		Ingame::stage = 3;
 		Player::coloring_per = 0;
 		OBJ->Add(new Enemy(5), "Boss")->pos = CENTER;
-		OBJ->Add(new Enemy(3), "Eenmy")->pos = { float(RANDOM->INT(L + 1, R - 1)),float(RANDOM->INT(T + 1,B - 1)) };
-		OBJ->Add(new Enemy(3), "Eenmy")->pos = { float(RANDOM->INT(L + 1, R - 1)),float(RANDOM->INT(T + 1,B - 1)) };
+		OBJ->Add(new Enemy(6), "Eenmy")->pos = { float(RANDOM->INT(L + 1, R - 1)),float(RANDOM->INT(T + 1,B - 1)) };
+		OBJ->Add(new Enemy(6), "Eenmy")->pos = { float(RANDOM->INT(L + 1, R - 1)),float(RANDOM->INT(T + 1,B - 1)) };
 		OBJ->Add(new Enemy(4), "Eenmy")->pos = { float(RANDOM->INT(L + 1, R - 1)),float(RANDOM->INT(T + 1,B - 1)) };
 		OBJ->Add(new Enemy(4), "Eenmy")->pos = { float(RANDOM->INT(L + 1, R - 1)),float(RANDOM->INT(T + 1,B - 1)) };
+		break;
 	}
 	OBJ->Add(new Player, "player")->pos = { CENTER.x,float(B) };
 	player = OBJ->Find("player");
@@ -65,7 +66,7 @@ void Ingame::Init()
 
 	OBJ->Add(new Mouse, "Mouse");
 
-	timer = 100;
+	timer = 60;
 	playtime = TIME->Create(timer);
 }
 
@@ -78,17 +79,20 @@ void Ingame::Update()
 	}
 	
 	
-	if (Player::coloring_per >=0.1)
+	if (Player::coloring_per >=80)
 	{
 		switch (type)
 		{
 		case 1:
 			IMG->ReLoad("BG1");
 			stage = 2;
-			SCENE->Set("stage2");
+			SCENE->Set("clear stage1");
+
 			break;
 		case 2:
 			SCENE->Set("stage3");
+			SCENE->Set("clear stage2");
+
 			break;
 		case 3:
 			SCENE->Set("clear");

@@ -12,8 +12,7 @@ void End::Init()
 	{
 	case 1: //¸ğµç ½ºÅ×ÀÌÁö¸¦ ³¡³ÂÀ» ¶§
 		bg = IMG->Add("Success");restart = new Button(IMG->Add("return"), { CENTER.x - 550,CENTER.y + 300 }, "", 400, 150, 1, [&]()->void { SCENE->Set("stage1"); IMG->ReLoad("BG1"); IMG->ReLoad("BG3"); }, false);
-		title = new Button(IMG->Add("menu"), { CENTER.x  ,CENTER.y + 300 }, "", 400, 170, 1, [&]()->void { SCENE->Set("title"); IMG->ReLoad("BG1"); IMG->ReLoad("BG3"); }, false);
-		next = new Button(IMG->Add("next"), { CENTER.x + 550,CENTER.y + 300 }, "", 400, 140, 1, [&]()->void { SCENE->Set("stage3"); }, false);
+		title = new Button(IMG->Add("menu"), { CENTER.x +550 ,CENTER.y + 300 }, "", 400, 170, 1, [&]()->void { SCENE->Set("title"); IMG->ReLoad("BG1"); IMG->ReLoad("BG3"); }, false);
 		break;
 	case 2: //Á×¾úÀ» ¶§
 		bg = IMG->Add("Failure");
@@ -21,16 +20,15 @@ void End::Init()
 		title = new Button(IMG->Add("menu"), { CENTER.x + 300,CENTER.y + 300 }, "", 440, 200, 1, [&]()->void { SCENE->Set("title"); IMG->ReLoad("BG1"); IMG->ReLoad("BG3"); }, false);
 		break;
 	case 3: //1stage ²¢À» ¶§
-		bg = IMG->Add("Success"); restart = new Button(IMG->Add("return"), { CENTER.x - 300,CENTER.y + 300 }, "", 440, 200, 1, [&]()->void { SCENE->Set("stage1"); IMG->ReLoad("BG1"); IMG->ReLoad("BG3"); }, false);
-		restart = new Button(IMG->Add("return"), { CENTER.x - 300,CENTER.y + 300 }, "", 440, 200, 1, [&]()->void { SCENE->Set("stage1"); IMG->ReLoad("BG1"); IMG->ReLoad("BG3"); }, false);
-		title = new Button(IMG->Add("menu"), { CENTER.x + 300,CENTER.y + 300 }, "", 440, 200, 1, [&]()->void { SCENE->Set("title"); IMG->ReLoad("BG1"); IMG->ReLoad("BG3"); }, false);
-		next = new Button(IMG->Add("next"), { CENTER.x + 300,CENTER.y + 300 }, "", 440, 180, 1, [&]()->void { SCENE->Set("stage2"); IMG->ReLoad("BG1"); IMG->ReLoad("BG3"); }, false);
-	case 4: //1stage ²¢À» ¶§
-		bg = IMG->Add("Success"); restart = new Button(IMG->Add("return"), { CENTER.x - 300,CENTER.y + 300 }, "", 440, 200, 1, [&]()->void { SCENE->Set("stage1"); IMG->ReLoad("BG1"); IMG->ReLoad("BG3"); }, false);
-		restart = new Button(IMG->Add("return"), { CENTER.x - 300,CENTER.y + 300 }, "", 440, 200, 1, [&]()->void { SCENE->Set("stage1"); IMG->ReLoad("BG1"); IMG->ReLoad("BG3"); }, false);
-		title = new Button(IMG->Add("menu"), { CENTER.x + 300,CENTER.y + 300 }, "", 440, 200, 1, [&]()->void { SCENE->Set("title"); IMG->ReLoad("BG1"); IMG->ReLoad("BG3"); }, false);
-		next = new Button(IMG->Add("next"), { CENTER.x + 300,CENTER.y + 300 }, "", 440, 180, 1, [&]()->void { SCENE->Set("stage3"); IMG->ReLoad("BG1"); IMG->ReLoad("BG3"); }, false);
-		
+		bg = IMG->Add("Success"); restart = new Button(IMG->Add("return"), { CENTER.x - 550,CENTER.y + 300 }, "", 440, 200, 1, [&]()->void { SCENE->Set("stage1"); IMG->ReLoad("BG1"); IMG->ReLoad("BG3"); }, false);
+		title = new Button(IMG->Add("menu"), { CENTER.x + 0,CENTER.y + 300 }, "", 440, 200, 1, [&]()->void { SCENE->Set("title"); IMG->ReLoad("BG1"); IMG->ReLoad("BG3"); }, false);
+		next = new Button(IMG->Add("next"), { CENTER.x + 550,CENTER.y + 300 }, "", 440, 180, 1, [&]()->void { SCENE->Set("stage2"); IMG->ReLoad("BG1"); IMG->ReLoad("BG3"); }, false);
+		break;
+	case 4: //2stage ²¢À» ¶§
+		bg = IMG->Add("Success"); restart = new Button(IMG->Add("return"), { CENTER.x - 550,CENTER.y + 300 }, "", 440, 200, 1, [&]()->void { SCENE->Set("stage1"); IMG->ReLoad("BG1"); IMG->ReLoad("BG3"); }, false);
+		title = new Button(IMG->Add("menu"), { CENTER.x + 0,CENTER.y + 300 }, "", 440, 200, 1, [&]()->void { SCENE->Set("title"); IMG->ReLoad("BG1"); IMG->ReLoad("BG3"); }, false);
+		next = new Button(IMG->Add("next"), { CENTER.x + 550,CENTER.y + 300 }, "", 440, 180, 1, [&]()->void { SCENE->Set("stage3"); IMG->ReLoad("BG1"); IMG->ReLoad("BG3"); }, false);
+		break;
 	}
 	OBJ->Add(new Mouse, "Mouse");
 
