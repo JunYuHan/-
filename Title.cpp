@@ -18,11 +18,12 @@ void Title::Init()
 	case 1:
 		anim = vector<Texture*>
 		{
-			IMG->Add("intro1"),
-			IMG->Add("intro2"),
-			IMG->Add("intro3"),
-			IMG->Add("intro4"),
-			IMG->Add("intro5"),
+			IMG->Add("die0"),
+			IMG->Add("die1"),
+			IMG->Add("die2"),
+			IMG->Add("die3"),
+			IMG->Add("die4"),
+			IMG->Add("die5"),
 		};
 
 		delay = TIME->Create(1);

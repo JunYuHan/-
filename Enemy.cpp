@@ -70,6 +70,9 @@ void Enemy::Init()
 		size = sizes[4];
 		speed = speeds[4];
 		break;
+	case 7: //¼®±Ãº´(Àâ¸÷)
+		size = sizes[4];
+		speed = speeds[4];
 	}
 
 	timer = TIME->Create(cool);
